@@ -9,12 +9,12 @@ unsigned long MOVE_INTERVAL = 100;  // mS
 int  messageOffset;
 
 MAX7219_Dot_Matrix display (chips, 2);  // Chips / LOAD 
-char message [90] = "WeArGenius                       "; //String to be displayed
+char message [30]; //String to be displayed
 
-const char* ssid = "weargenius"; // SSID Of the Router
+const char* ssid = "home_wg"; // SSID Of the Router
 const char* password = "omisoksbwn";// Access point Password
-const char* host = "192.168.0.1"; //Server IP or URL
-int requestTime=0;
+const char* host = "192.168.0.7"; //Server IP or URL
+int requestTime=90000;
 int exitT=1;
 
 void updateDisplay ()
@@ -56,7 +56,7 @@ void loop() {
       Serial.println("connection failed");
     }
     
-    String url = "/test/index.php"; //Path of the webpage in the server to request
+    String url = "/API/subscriber.php"; //Path of the webpage in the server to request
     Serial.print("Requesting URL: ");
     Serial.println(url);
     client.print(String("GET ") + url + " HTTP/1.0\r\n" +
@@ -64,12 +64,12 @@ void loop() {
         "Connection: close\r\n\r\n");
 
     while (client.available() == 0) { // check Response from server
-		if (millis() - requestTime >30000) { // 30 seconds to wait for response before timeout
-		  Serial.println(">>> Client Timeout !");
-		  client.stop();
-		  exitT=0;
-		  break;
-		}
+    if (millis() - requestTime >30000) { // 30 seconds to wait for response before timeout
+      Serial.println(">>> Client Timeout !");
+      client.stop();
+      exitT=0;
+      break;
+    }
     }
     String line="";
     while(client.available()){ // Read response from Server
@@ -86,11 +86,9 @@ void loop() {
       client.stop();
     }
   }
-  for(int i=0;i<5000;i++){ // Display the content
-    if (millis () - lastMoved >= MOVE_INTERVAL){
-      updateDisplay ();
-      lastMoved = millis ();
-    }
-    delay(1);
+   //display.sendString (message);
+  if (millis () - lastMoved >= MOVE_INTERVAL){
+    updateDisplay ();
+    lastMoved = millis ();
   }
 }
