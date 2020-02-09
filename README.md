@@ -4,7 +4,7 @@ This is a  simple project around Arduino (ESP8266) and Node-RED to display YouTu
   
 [Information Display System using WeMOS and MAX7219 | MAKE #3](http://bit.ly/2tC3VKs) @[WeArGenius](https://www.youtube.com/channel/UCo3jik11kHu65uQBGueaw4g)
 
-## Dependencies:
+## Dependencies:-
 
 1. [MAX7219 Display Library]( http://bit.ly/2oTtoty) for ESP8266 : by [SensorsIot](http://bit.ly/2ocx5fp)
 
