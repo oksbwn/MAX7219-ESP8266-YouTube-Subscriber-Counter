@@ -1,7 +1,15 @@
-# Youtube-Subscriber-counter-using-MAX7219-and-Wemos
-This is a  simple aarduino code that helps you display any content displayed over MAX7219 display by using Arduino and Wemos
+This is a  simple project around Arduino (ESP8266) and Node-RED to display YouTube subsciber counts for a channel. The subsciber count is displayed over 4x MAX7219 based dot matrix display modules. It can not only display the subscriber count, it can display any content.
 
-Video on This : http://bit.ly/2tC3VKs
+## Video:-
+  
+[Information Display System using WeMOS and MAX7219 | MAKE #3](http://bit.ly/2tC3VKs) @[WeArGenius](https://www.youtube.com/channel/UCo3jik11kHu65uQBGueaw4g)
 
-Dependendies:
-  MAX7219 Display Library for ESP8266 : http://bit.ly/2oTtoty by SensorsIot(http://bit.ly/2ocx5fp)
+## Dependencies:
+
+1. [MAX7219 Display Library]( http://bit.ly/2oTtoty) for ESP8266 : by [SensorsIot](http://bit.ly/2ocx5fp)
+
+## Wiring:-
+
+The modules are connected to the ESP8266 using the SPI interfaces, the connections are as follows,
+
+![MAX7219 Matrix_.jpg](MAX7219Matrix_.jpg)
